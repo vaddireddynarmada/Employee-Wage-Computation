@@ -3,6 +3,11 @@ public class EmployeeWageComputation {
     public static final int IS_FULL_TIME = 2;
 
     public static void main(String[] args) {
+        EmployeeWageComputation emp = new EmployeeWageComputation();
+        emp.empWage();
+    }
+
+    public void empWage() {
         int empWage = 0, empHrs = 0, totalEmployeewage = 0, totalEmpHrs = 0, totalWorkingDays = 0;
         int wagePerHour = 20, workingDay = 20;
         while (totalEmpHrs < 100 && totalWorkingDays < workingDay) {
@@ -25,6 +30,5 @@ public class EmployeeWageComputation {
         System.out.println("Total Employee WorkingDays is: " + totalWorkingDays);
         System.out.println("Total Employee WorkingHour is: " + totalEmpHrs);
         System.out.println("Total Employee Wage is: " + totalEmployeewage);
-
     }
 }

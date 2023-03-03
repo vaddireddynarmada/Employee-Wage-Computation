@@ -1,34 +1,31 @@
+import java.util.Random;
+
 public class EmployeeWageComputation {
-    public static final int IS_PART_TIME = 1;
-    public static final int IS_FULL_TIME = 2;
-
-    public static void main(String[] args) {
-        EmployeeWageComputation emp = new EmployeeWageComputation();
-        emp.empWage();
-    }
-
-    public void empWage() {
-        int empWage = 0, empHrs = 0, totalEmployeewage = 0, totalEmpHrs = 0, totalWorkingDays = 0;
-        int wagePerHour = 20, workingDay = 20;
-        while (totalEmpHrs < 100 && totalWorkingDays < workingDay) {
-            totalWorkingDays++;
+    public static final int IS_FULL_TIME = 1;
+    public static final int IS_PART_TIME = 2;
+    private static void wageComputation(String company, int wage, int numOfWorkingDays, int workingHoursPerMont) {
+        int empHrs = 0, totalWorkingDays = 0, totalEmpHrs = 0;
+        Random random = new Random();
+        while (totalEmpHrs < workingHoursPerMont && totalWorkingDays < numOfWorkingDays) {
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
             switch (empCheck) {
-                case IS_PART_TIME:
-                    empHrs = 4;
-                    break;
                 case IS_FULL_TIME:
                     empHrs = 8;
                     break;
+                case IS_PART_TIME:
+                    empHrs = 4;
+                    break;
                 default:
-                    empHrs = 0;
             }
             totalEmpHrs = totalEmpHrs + empHrs;
-            empWage = empHrs * wagePerHour;
-            totalEmployeewage = totalEmployeewage + empWage;
         }
-        System.out.println("Total Employee WorkingDays is: " + totalWorkingDays);
-        System.out.println("Total Employee WorkingHour is: " + totalEmpHrs);
-        System.out.println("Total Employee Wage is: " + totalEmployeewage);
+
+        int empWage = totalEmpHrs * wage;
+        System.out.println("Employee Wage for " +company  + " company is : " + empWage);
+    }
+
+    public static void main(String[] args) {
+        wageComputation("dMArt", 20, 2, 10);
+        wageComputation("Reliance", 30, 4, 14);
     }
 }

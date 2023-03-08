@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class EmpWageBuilder {
+public class EmpWageBuilder implements EmployeeWageComputation {
     public final int IS_FULL_TIME = 1;
     public final int IS_PART_TIME = 2;
     int noOfCompany = 0;

@@ -1,16 +1,17 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class EmpWageBuilder implements EmployeeWageComputation {
     public final int IS_FULL_TIME = 1;
     public final int IS_PART_TIME = 2;
     int noOfCompany = 0;
-    CompanyEmpWage[] companyEmpWages = new CompanyEmpWage[55];
+    ArrayList<CompanyEmpWage> companyEmpWages = new ArrayList<>();
 
     public void addCompanyEmpWage(String company, int wagePerHr, int daysPerMonth, int workPerMonth) {
-        companyEmpWages[noOfCompany] = new CompanyEmpWage(company, wagePerHr, daysPerMonth, workPerMonth);
-        noOfCompany++;
-        for (int i = 0; i < noOfCompany; i++) {
-            calculateWage(companyEmpWages[i]);
+        CompanyEmpWage noOfComapany = new CompanyEmpWage(company, wagePerHr, daysPerMonth, workPerMonth);
+        companyEmpWages.add(noOfComapany);
+        for (int i = 0; i < companyEmpWages.size(); i++) {
+            calculateWage(noOfComapany);
         }
     }
 
